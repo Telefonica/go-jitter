@@ -5,10 +5,12 @@ import (
 	"time"
 
 	jitter "github.com/Telefonica/go-jitter"
+	"github.com/Telefonica/ping"
 )
 
 func main() {
-	j, err := jitter.NewJitterer("google.com")
+	ping, err := ping.NewPinger("google.com")
+	j, err := jitter.NewJitterer("google.com", ping)
 	if err != nil {
 		fmt.Println(err)
 	}
