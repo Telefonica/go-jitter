@@ -42,11 +42,7 @@ type Jitterer struct {
 }
 
 // NewJitterer returns a new Jitterer for the host specified
-func NewJitterer(targetHost string) (*Jitterer, error) {
-	pngr, err := ping.NewPinger(targetHost)
-	if err != nil {
-		return nil, err
-	}
+func NewJitterer(targetHost string, pngr *ping.Pinger) (*Jitterer, error) {
 
 	return &Jitterer{
 		Host:             targetHost,
