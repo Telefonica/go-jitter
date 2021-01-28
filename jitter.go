@@ -27,6 +27,7 @@ type JitterStatistics struct {
 // Jitterer represents the configuration and actors to test jitter
 type Jitterer struct {
 	Host string
+	//
 	// blockSampleSize represents the number of measurements that will result in 1 jitter calculation
 	blockSampleSize int
 	// pingerStatistics represents results from ping
