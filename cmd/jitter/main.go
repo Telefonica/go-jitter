@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"time"
 
-	jitter "github.com/cbergoon/go-jitter"
+	jitter "github.com/Telefonica/go-jitter"
 )
 
 func main() {
