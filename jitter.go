@@ -27,7 +27,6 @@ type JitterStatistics struct {
 // Jitterer represents the configuration and actors to test jitter
 type Jitterer struct {
 	Host string
-	//
 	// blockSampleSize represents the number of measurements that will result in 1 jitter calculation
 	blockSampleSize int
 	// pingerStatistics represents results from ping
@@ -43,7 +42,13 @@ type Jitterer struct {
 }
 
 // NewJitterer returns a new Jitterer for the host specified
-func NewJitterer(targetHost string, pngr *ping.Pinger) (*Jitterer, error) {
+func NewJitterer(targetHost string, tos int) (*Jitterer, error) {
+	pngr, err := ping.NewPinger(targetHost)
+	if err != nil {
+		return nil, err
+	}
+
+	pngr.TOS = tos
 
 	return &Jitterer{
 		Host:             targetHost,
